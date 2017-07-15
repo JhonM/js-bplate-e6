@@ -1,12 +1,13 @@
 class Person {
-  constructor (first_name, last_name, project) {
-    this.first_name = first_name;
-    this.last_name = last_name;
+  constructor (firstName, lastName, project) {
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.project = project;
   }
 
   personalInfo () {
-    console.log(`My name is ${first_name} ${last_name} and I currently working on ${project}`);
+    /* eslint-disable no-console, max-len */
+    console.log(`My name is ${this.firstName} ${this.lastName} and I currently working on ${this.project}`);
   }
 }
 
