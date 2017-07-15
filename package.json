@@ -2,9 +2,12 @@
   "name": "js-bplate-e6",
   "version": "1.0.0",
   "description": "ES6 boilerplate with babel and webpack3",
-  "main": "webpack.config.js",
+  "main": "lib/library.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --env build",
+    "dev": "webpack --progress --colors --watch --env dev",
+    "test": "mocha --compilers js:babel-core/register --colors ./tests/*.test.js",
+    "test:watch": "mocha --compilers js:babel-core/register --colors -w ./tests/*.test.js"
   },
   "author": "Jhon Majoor",
   "license": "ISC",
