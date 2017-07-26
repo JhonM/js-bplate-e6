@@ -1,50 +1,54 @@
 /* global __dirname, require, module */
 
-const webpack = require('webpack');
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-const path = require('path');
-const env = require('yargs').argv.env;
-console.info(env)
-let libraryName = 'Library';
+/* eslint-disable no-alert, no-mixed-requires, prefer-destructuring */
+const env = require('yargs').argv.env,
+  libraryName = 'Library',
+  path = require('path'),
+  plugins = [],
+  webpack = require('webpack'),
+  /* eslint-disable no-alert, sort-vars, prefer-destructuring */
+  UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
-let plugins = [], outputFile
+/* eslint-disable no-console */
+console.info(env);
+
+let outputFile = `${libraryName}.min.js`;
 
 if (env === 'build') {
   plugins.push(new UglifyJsPlugin({ minimize: true }));
-  outputFile = libraryName + '.min.js';
+  outputFile = `${libraryName}.min.js`;
 } else {
-  outputFile = libraryName + '.js';
+  outputFile = `${libraryName}.js`;
 }
 
-const config = {
-  entry: __dirname + '/src/index.js',
+module.exports = {
   devtool: 'source-map',
-  output: {
-    path: __dirname + '/lib',
-    filename: outputFile,
-    library: libraryName,
-    libraryTarget: 'umd',
-    umdNamedDefine: true
-  },
-  module: {
+  entry:   `${__dirname}/src/index.js`,
+  module:  {
     rules: [
       {
-        test: /(\.jsx|\.js)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
+        loader:  'babel-loader',
+        test:    /(\.jsx|\.js)$/,
       },
       {
-        test: /(\.jsx|\.js)$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
-      }
-    ]
+        loader:  'eslint-loader',
+        test:    /(\.jsx|\.js)$/,
+      },
+    ],
   },
+  output: {
+    filename:       outputFile,
+    library:        libraryName,
+    libraryTarget:  'umd',
+    path:           `${__dirname}/lib`,
+    umdNamedDefine: true,
+  },
+  plugins,
   resolve: {
-    modules: [path.resolve('./node_modules'), path.resolve('./src')],
-    extensions: ['.json', '.js']
+    extensions: ['.json', '.js'],
+    modules:    [path.resolve('./node_modules'), path.resolve('./src')],
   },
-  plugins: plugins
-}
+};
 
-module.exports = config;
