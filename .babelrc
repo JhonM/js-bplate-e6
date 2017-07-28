@@ -3,5 +3,8 @@
     "es2015",
     "flow"
   ],
-  "plugins": ["babel-plugin-add-module-exports"]
+  "plugins": [
+    "babel-plugin-add-module-exports",
+    "transform-flow-comments"
+  ]
 }

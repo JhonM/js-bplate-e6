@@ -2,6 +2,8 @@
 
 /* eslint-disable no-alert, no-mixed-requires, prefer-destructuring */
 const env = require('yargs').argv.env,
+  /* eslint-disable sort-vars */
+  FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin'),
   libraryName = 'Library',
   path = require('path'),
   plugins = [],
@@ -18,6 +20,8 @@ if (env === 'build') {
   plugins.push(new UglifyJsPlugin({ minimize: true }));
   outputFile = `${libraryName}.min.js`;
 } else {
+  plugins.push(new FlowBabelWebpackPlugin());
+  console.log(`plugins length :${plugins.length}`)
   outputFile = `${libraryName}.js`;
 }
 
