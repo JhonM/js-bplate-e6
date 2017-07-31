@@ -1,0 +1,12 @@
+[ignore]
+.*/lib/.*
+
+[include]
+./src
+
+[libs]
+./node_modules/.bin/flow init
+
+[options]
+
+[lints]

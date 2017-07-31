@@ -1,12 +1,18 @@
+// @flow
+
 export default class Person {
-  constructor (firstName, lastName, project) {
+  firstName: string;
+  lastName: string;
+  project: string;
+
+  constructor (firstName: string, lastName: string, project: string) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.project = project;
   }
 
-  get personalInfo () {
+  personalInfo (): string {
     /* eslint-disable no-console, max-len */
-    return `My name is ${this.firstName} ${this.lastName} and I currently working on ${this.project}`;
+    return `My name is ${this.firstName} ${this.lastName} and I currently working on ${this.project}.`;
   }
 }
