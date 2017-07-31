@@ -15,7 +15,7 @@ describe('Given an instance of my Person library', () => {
   });
   describe('when I need person info', () => {
     it('should return the personal info', () => {
-      expect(lib.personalInfo).to.be.equal('My name is Jhon Majoor and I currently working on JS Boilerplate');
+      expect(lib.personalInfo()).to.be.equal('My name is Jhon Majoor and I currently working on JS Boilerplate.');
     });
   });
 });
