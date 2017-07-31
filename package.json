@@ -2,7 +2,7 @@
   "name": "js-bplate-e6",
   "version": "1.0.0",
   "description": "ES6 boilerplate with babel and webpack3",
-  "main": "lib/library.js",
+  "main": "lib/Library.js",
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",
