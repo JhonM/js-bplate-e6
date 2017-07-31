@@ -1,7 +1,7 @@
 /* global describe, it, before */
 
 import chai from 'chai';
-import { Person } from '../lib/library.js';
+import { Person } from '../lib/Library.js';
 
 chai.expect();
 
