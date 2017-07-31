@@ -1,6 +1,6 @@
-# Js-bplate
+# Js-bplate-e6 [![Build Status](https://travis-ci.org/JhonM/js-bplate-e6.svg?branch=master)](https://travis-ci.org/JhonM/js-bplate-e6)
 
-## Personal ES6 boilerplate with babel and webpack
+## Personal Javascript ES6 boilerplate with babel and webpack
 
 ### Getting started
 
