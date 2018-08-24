@@ -1,11 +1,11 @@
 /* global describe, it, before */
 
 import chai from 'chai';
-import { Person } from '../lib/Library.js';
+import Person from '../src/Person.js';
 
 chai.expect();
 
-const expect = chai.expect;
+const { expect } = chai;
 
 let lib;
 
@@ -15,7 +15,9 @@ describe('Given an instance of my Person library', () => {
   });
   describe('when I need person info', () => {
     it('should return the personal info', () => {
-      expect(lib.personalInfo()).to.be.equal('My name is Jhon Majoor and I currently working on JS Boilerplate.');
+      expect(lib.personalInfo()).to.be.equal(
+        'My name is Jhon Majoor and I currently working on JS Boilerplate.'
+      );
     });
   });
 });
